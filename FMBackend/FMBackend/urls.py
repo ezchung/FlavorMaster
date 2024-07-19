@@ -19,6 +19,7 @@ from django.urls import path, include
 from classes.views import CreateUserView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+#Connecting Auth Routes
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('class/user/register', CreateUserView.as_view(), name="register"),
