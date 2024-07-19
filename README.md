@@ -1,17 +1,17 @@
 # FlavorMaster
 
-This will be virtual cooking classes. Similar to working out
-Recipes will be working with stores so we can buy correct items
+FlavorMaster is a platform for virtual cooking classes, similar to online workout programs. Users can browse and register for classes, and instructors can manage their offerings. The platform will also work with stores to facilitate purchasing the correct items for recipes.
 
 ## Features
-- Users can browse available cooking classes by category, date, or instructor.
-- Users can register for classes and attend live or recorded sessions.
-- Instructors can create and manage their classes, upload recipes, and provide instructions.
-- Users can purchase items that they need for class
-    - Separate store page
+
+- **Browse Classes:** Users can explore available cooking classes by category, date, or instructor.
+- **Class Registration:** Users can register for classes and attend either live or recorded sessions.
+- **Instructor Management:** Instructors can create and manage their classes, upload recipes, and provide instructions.
+- **Purchase Items:** Users can purchase the items they need for the class through a dedicated store page.
 
 ## Tech Stack
-Frontend : React
-Backend : Django
-Tools: AWS
+
+- **Frontend:** React
+- **Backend:** Django
+- **Tools:** AWS
 
