@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Class',
+            name='Course',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=200)),
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('registration_date', models.DateTimeField(auto_now_add=True)),
-                ('class_registered', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='classes.class')),
+                ('course_registered', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='courses.course')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),

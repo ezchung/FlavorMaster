@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Class
+from .models import Course
 
 #creating serailizers that takes User object into convertable code (JSON)
 class UserSerializer(serializers.ModelSerializer):
@@ -17,8 +17,8 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user 
     
-# class ClassSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Class
-#         fields = ["id", "title", "content", "created_at", "chef"]
-#         extra_kwargs = {"chef": {"read_only": True}}
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = ["id", "title", "description", "created_at", "instructor", "course_date"]
+        extra_kwargs = {"instructor": {"read_only": True}} #able to read but not write who author is
