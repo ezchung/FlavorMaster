@@ -16,3 +16,9 @@ class UserSerializer(serializers.ModelSerializer):
         # print(validated_data)
         user = User.objects.create_user(**validated_data)
         return user 
+    
+# class ClassSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Class
+#         fields = ["id", "title", "content", "created_at", "chef"]
+#         extra_kwargs = {"chef": {"read_only": True}}
