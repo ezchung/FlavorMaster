@@ -16,15 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from classes.views import CreateUserView
+from courses.views import CreateUserView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-#Connecting Auth Routes
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('class/user/register', CreateUserView.as_view(), name="register"),
-    path('class/token', TokenObtainPairView.as_view(), name="get_token"),
-    path('class/token/refresh', TokenRefreshView.as_view(), name="refresh"),
-    path('class-auth', include("rest_framework.urls")),
+    path('course/user/register', CreateUserView.as_view(), name="register"),
+    path('course/token', TokenObtainPairView.as_view(), name="get_token"),
+    path('course/token/refresh', TokenRefreshView.as_view(), name="refresh"),
+    path('course-auth', include("rest_framework.urls")),
 ]
 
