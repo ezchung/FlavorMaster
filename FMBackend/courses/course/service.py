@@ -1,15 +1,20 @@
 from .models import Course
 
-#make a module to import
-def get_all_courses(self):
-    return Course.objects.all()
+class CourseUtils:
+    def get_all_courses(self):
+        """Retrieve all courses."""
+        return Course.objects.all()
 
-def perform_create(self,serializer):
-    if serializer.is_valid():
-        serializer.save(author=self.request.user)
-    else:
-        print(serializer.errors)
+    def perform_create(self, serializer, user):
+        """Perform create operation for a course."""
+        if serializer.is_valid():
+            serializer.save(author=user)
+        else:
+            print(serializer.errors)
 
-def get_personal_course_set(self):
-    user = self.request.user
-    return Course.objects.filter(author=user)
+    def get_personal_course_set(self, user):
+        """Retrieve courses authored by the specified user."""
+        return Course.objects.filter(author=user)
+
+# Create a single instance of CourseUtils
+course_utils = CourseUtils()
