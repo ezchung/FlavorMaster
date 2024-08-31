@@ -15,3 +15,35 @@ FlavorMaster is a platform for virtual cooking classes, similar to online workou
 - **Backend:** Django
 - **Tools:** AWS
 
+Objectives
+- Users enter the site authorized. Users can create their own class. Classes can have multiple instructors. Users can register for classes. Users are able to see what classes they registered for. Users can be both instructors and attendes. Instructors can create and manage their classes, upload recipes, and provide instructions. Users can unregister for classes.
+
+When instructors make a class, they need to input the syllabus pdf, etc.
+
+## Models
+Users
+    - username
+    - password
+    - uuid
+Join table
+- Attende
+- Instructor
+
+Course
+    -uuid
+    -instructor or instructors
+    -course details
+    -syllabus pdf (will be stored in AWS S3)
+    -time of class
+    -recipe list
+    -style of cooking
+    -level of cooking
+    -Class size limit
+
+Registration
+    who registered for what class
+    uuid
+
+Waitlist
+    if there is a waitlist, if you were in the class and unregistered, you go to the back of line
+
