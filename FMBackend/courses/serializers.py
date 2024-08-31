@@ -25,7 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ["id", "title", "description", "created_at", "instructor", "course_date"]
+        fields = ["uuid", "id", "title", "description", "created_at", "instructor", "date"]
         extra_kwargs = {"instructor": {"read_only": True}} #able to read but not write who author is
 
 class RegistrationSerializer(serializers.ModelSerializer):

@@ -10,6 +10,7 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     instructor = models.ForeignKey(User, on_delete=models.CASCADE, related_name="instructorName")
     date = models.DateTimeField()
+    #id as a primary key
 
     def __str__(self):
         return self.title
@@ -18,6 +19,7 @@ class Registration(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     class_registered = models.ForeignKey(Course, on_delete=models.CASCADE)
     registration_date = models.DateTimeField(auto_now_add=True)
+    #id as a primary key
 
     def __str__(self):
         return f"{self.user.username} - {self.class_registered.title}"
@@ -28,3 +30,5 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+#move each model to individual thing

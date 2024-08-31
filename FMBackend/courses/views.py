@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from .serializers import UserSerializer, CourseSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Course, Registration
+from . import service
 
 # Create your views here.
 #Create Course
@@ -13,8 +14,9 @@ class CourseListCreate(generics.ListCreateAPIView):
     serializer_class = CourseSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        return Course.objects.filter()
+    def get(self):
+        return service.get_all_courses()
+        #figure out whether this is returning as JSON or regular text response
     
     def perform_create(self,serializer):
         if serializer.is_valid():
@@ -22,9 +24,13 @@ class CourseListCreate(generics.ListCreateAPIView):
         else:
             print(serializer.errors)
 
+    #based on parameters, do certain action
     def get_personal_course_set(self):
         user = self.request.user
         return Course.objects.filter(author=user)
+    
+    #delete from django
+    #
 
 #Deleting courses
 class CourseDelete(generics.DestroyAPIView):
@@ -34,7 +40,8 @@ class CourseDelete(generics.DestroyAPIView):
     def get_personal_course_set(self):
         user = self.request.user
         return Course.objects.filter(author=user)
-
+    
+#USER
 
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -54,3 +61,9 @@ class UserRegisteredCoursesView(APIView):
         courses = [registration.class_registered for registration in registrations]
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
+    
+    def post():
+        #post method on the frontend
+    
+    def delete():
+        #delete method on the frontend

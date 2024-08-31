@@ -7,7 +7,9 @@ from .serializers import CourseSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Course
 # from .service import get_all_courses
-from .service import course_utils
+from .service import CourseUtils
+course_utils = CourseUtils()
+
 
 
 # Create your views here.
